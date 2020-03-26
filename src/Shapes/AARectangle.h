@@ -9,7 +9,7 @@ class AARectangle : public Shape
 {
 public:
 	AARectangle();
-	AARectangle(const Vec2D& topLeft, Vec2D& bottomRight);
+	AARectangle(const Vec2D& topLeft, const Vec2D& bottomRight);
 	AARectangle(const Vec2D& topLeft, unsigned int width, unsigned int height);
 	
 	inline void SetTopLeftPoint(const Vec2D& topLeft) { m_points[0] = topLeft; }
@@ -28,7 +28,7 @@ public:
 	bool ContainsPoint(const Vec2D& point) const;
 
 	AARectangle Inset(const AARectangle& rect, Vec2D& insets);
-	virtual std::vector<Vec2D> GetPoints() override;
+	virtual std::vector<Vec2D> GetPoints() const override;
 };
 
 #endif

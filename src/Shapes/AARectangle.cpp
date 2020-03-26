@@ -3,8 +3,7 @@
 #include <cmath>
 
 AARectangle::AARectangle() : AARectangle(Vec2D::Zero, Vec2D::Zero)
-{
-}
+{}
 
 AARectangle::AARectangle(const Vec2D& topLeft, unsigned int width, unsigned int height)
 {
@@ -12,7 +11,7 @@ AARectangle::AARectangle(const Vec2D& topLeft, unsigned int width, unsigned int 
 	m_points.push_back(Vec2D(topLeft.GetX() + width - 1, topLeft.GetY() + height- 1));
 }
 
-AARectangle::AARectangle(const Vec2D& topLeft, Vec2D& bottomRight)
+AARectangle::AARectangle(const Vec2D& topLeft, const Vec2D& bottomRight)
 {
 	m_points.push_back(topLeft);
 	m_points.push_back(bottomRight);
@@ -63,7 +62,7 @@ AARectangle AARectangle::Inset(const AARectangle& rect, Vec2D& insets)
 	return AARectangle(rect.GetTopLeftPoint() + insets, rect.GetWidth() - 2 * insets.GetX(), rect.GetHeight() - 2 * insets.GetY());
 }
 
-std::vector<Vec2D> AARectangle::GetPoints()
+std::vector<Vec2D> AARectangle::GetPoints() const
 {
 	std::vector<Vec2D> points;
 
